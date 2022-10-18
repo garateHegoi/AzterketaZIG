@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    {% load static %}
+    <title>Kotxea</title>
+    <link href="https://fonts.googleapis.com/css?family=Ruslan+Display" rel="stylesheet">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstraptheme.min.css">
+    <link rel="stylesheet" href="{% static 'css/kotxea.css' %}">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="page-header">
+                <h1 class="col-sm-3">Kotxeen Lista prueba</h1>
+                <h2 class="col-sm-3">Hau prueba bakar bat da, hemen daukazu taulak:</h2>
+            </div>
+            <br>
+            <br>
+            <div class="col">
+                <p>Aeneas eu leo qualm. Interpellates ornate sem niacin qualm
+                    venation vestibule. Done id elit non mi port gravid at wget metes. Fuse
+                    paribus, tells ac curses commode, tort Lauris condiment nib, ut ferment
+                    mass justo sit amet rises.</p>
+                <br><br>
+            </div>
+        </div>
+        <div class="col">
+            <p>Aeneas eu leo qualm. Interpellates ornate sem niacin qualm
+                venation vestibule. Done id elit non mi port gravid at wget metes. Fuse
+                paribus, tells ac curses commode, tort Lauris condiment nib, ut f.</p>
+        </div>
+        <br><br>
+        <div class="col">
+            <p>1.- Hemen taulak ikusi ahal dituzu</p>
+            <p>2.- Sakatu Add kotxe berri bat sortzeko</p>
+            <p>3.- Sakatu Delete kotxe hori ezabatzeko</p>
+            <p>4.- Sakatu ID-a (link bat da, urdinez dago), kotxea editazeko</p>
+        </div>
+        <br><br>
+        <div class="col">
+            <table class="table table-hover">
+                <thead class="thead-dark">
+                <tr>
+                    <th scope="col">id</th>
+                    <th scope="col">izena</th>
+                    <th scope="col">marka</th>
+                    <th scope="col">data</th>
+                </tr>
+                </thead>
+                {% for x in kotxea %}
+                <tbody>
+                <tr>
+                    <td><a href="update/{{ x.id }}">{{ x.id }}</a></td>
+                    <td>{{x.izena}}</td>
+                    <td>{{x.marka}}</td>
+                    <td>{{x.data}}</td>
+                    <td><a href="delete/{{ x.id }}">delete</a></td>
+                </tr>
+                </tbody>
+                {% endfor %}
+            </table>
+            <p>
+                <a href="add/">Add Kotxea</a>
+            </p>
+            <p>
+                <a href="addPer/">Add Pertsona</a>
+            </p>
+        </div>
+        <br><br>
+        <div class="col">
+            <table class="table table-hover">
+                <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Kotxe Izena</th>
+                    <th scope="col">idPertsona</th>
+                    <th scope="col">Izena</th>
+                    <th scope="col">Abizena</th>
+                </tr>
+                </thead>
+                {% for x in pertsona %}
+                <tbody>
+                <tr>
+                    <td>{{x.id_kotxea}}</td>
+                    <td>{{x.id}}</td>
+                    <td>{{x.izena}}</td>
+                    <td>{{x.abizena}}</td>
+                    <td><a href="deletePer/{{ x.id }}">delete</a></td>
+                </tr>
+                </tbody>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>

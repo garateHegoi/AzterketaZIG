@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <title>update</title>
+          <link href="https://fonts.googleapis.com/css?family=Ruslan+Display" rel="stylesheet">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstraptheme.min.css">
+    <link rel="stylesheet" href="{% static 'css/kotxea.css' %}">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+</head>
+<body>
+<h1>Update</h1>
+
+<form action="updaterecord/{{ kotxea.id }}" method="post">
+    {% csrf_token %}
+    Izena:<br>
+    <input name="izena" value="{{ kotxea.izena }}">
+    <br><br>
+    Marka:<br>
+    <input name="marka" value="{{ kotxea.marka }}">
+    <br><br>
+    Data:<br>
+    <input name="data" value="{{ kotxea.data }}">
+    <br><br>
+    <input type="submit" value="Submit">
+</form>
+</body>
+</html>
